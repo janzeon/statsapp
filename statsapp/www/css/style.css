@@ -1,0 +1,160 @@
+
+.second{
+  height: 100%;
+}
+.line{
+  width: 100vw;
+  left:-50vw;
+  height: 0.1rem;
+  background-color: #5E6472;
+  position: absolute;
+  top: 0.95rem;
+}
+.red {
+  width: 4vw;
+  height: 2rem; 
+  left:-2vw;
+  border-radius: 80px;
+  border: 1px solid black;
+  background-color: #EF6F6C;
+  position: absolute;
+}
+
+article {
+   padding-left:0;
+}
+
+.rangebar {
+  margin: auto;
+  text-align: center;
+  position:relative;
+}
+
+body{
+  margin:0;
+  padding:0;
+  background: white;
+  color:black;
+}
+
+.lsl {
+  position:absolute;
+  left:50px;
+  bottom:50px;
+  font-size:12vw;
+  color:#555658;
+  font-family: sans-serif;
+  font-weight:200;
+}
+
+.usl {
+  position:absolute;
+  bottom:50px;
+  right:50px;
+  font-size:12vw;
+  color:#555658;
+  font-family: sans-serif;
+  font-weight:200;
+}
+
+.textfields {
+  margin: auto;
+  text-align: center;
+  margin: 5vh 0 0px 0;
+}
+
+.input {
+  font-size:30px;
+  padding: 0 10px;
+  font-family:  sans-serif;
+  color:black;
+}
+.input input {
+  border:none;
+  font-size:30px;
+  width:30vw;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.textfields {
+  line-height: 2;
+  font-family: sans-serif;
+  color:#555658;
+  font-weight:200
+}
+
+header {
+  text-align: right;
+  font-family: sans-serif;
+  color:#555658;
+  font-weight:200;
+  font-size:12px;
+  padding: 50px 50px 0 0 ;
+}
+
+input:invalid {
+  color: red;
+}
+
+
+.modal-window {
+  position: fixed;
+  background-color: white;
+  margin:auto;
+  text-align: center;
+  font-family:sans-serif;
+  padding:30px;
+  color:#555658;
+  font-weight:200;
+  right: 0;
+  bottom: -270px;
+  height:270px;
+  left: 0;
+  z-index: 999;
+  border-radius: 50px;
+  border: 1px solid black;
+}
+
+
+.alphainput{
+    font-size:60px; 
+    width:20vw; 
+    text-align:center; 
+    border:none; 
+    background:none; 
+}
+
+.alphashortcut{
+    font-size:30px;
+    padding:20px 20px;
+    cursor: pointer;
+}
+
+.alphanumber{
+    font-family:sans-serif;
+    font-weight: 400;
+    font-size: 20px
+}
+
+input {
+    border-radius: 20px
+}
+
+p {
+    margin-bottom: 0 !important;
+}
+
+.placeholder{
+    color:black;
+}
+.green {
+    background-color: mediumseagreen
+}
+
+.yellow {
+    background-color: yellow
+}
