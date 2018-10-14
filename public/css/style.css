@@ -121,16 +121,16 @@ input:invalid {
 
 
 .alphainput{
-    font-size:60px; 
-    width:20vw; 
+    font-size:40px; 
+    width:20%; 
     text-align:center; 
     border:none; 
     background:none; 
 }
 
 .alphashortcut{
-    font-size:30px;
-    padding:20px 20px;
+    font-size:25px;
+    padding:20px 15px;
     cursor: pointer;
 }
 
