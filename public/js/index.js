@@ -22,14 +22,23 @@ app.controller('failurerateconfidence', function($scope) {
     
     $scope.changealpha =function() {
         $('#modal-window').animate({
-                bottom:'-50px'
+                bottom:'-80px'
+            });  
+        $ ('#overlay').show();
+        $ ('#overlay').animate({
+                opacity:0.5
             });  
     }
     
     $scope.closealpha=function(){
-        $('#modal-window').animate({
-                bottom:'-270px'
+        $ ('#overlay').animate({
+                opacity:0
             });  
+        $('#modal-window').animate({
+                bottom:'-350px'
+            });  
+        
+        $ ('#overlay').hide();
         $scope.run()
         
     }

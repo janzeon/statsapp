@@ -109,14 +109,14 @@ input:invalid {
   font-family:sans-serif;
   padding:30px;
   color:#555658;
-  font-weight:200;
   right: 0;
-  bottom: -270px;
-  height:270px;
+  bottom: -350px;
+  height:350px;
   left: 0;
   z-index: 999;
-  border-radius: 50px;
+  border-radius: 80px;
   border: 1px solid black;
+  max-width:400px;
 }
 
 
@@ -129,8 +129,6 @@ input:invalid {
 }
 
 .alphashortcut{
-    font-size:25px;
-    padding:20px 15px;
     cursor: pointer;
 }
 
@@ -152,9 +150,16 @@ p {
     color:black;
 }
 .green {
-    background-color: mediumseagreen
+    background-color: #06D6A0;
 }
 
 .yellow {
-    background-color: yellow
+    background-color: #FFD166;
+}
+.greent {
+    color: #06D6A0;
+}
+
+.yellowt {
+    color: #FFD166;
 }
