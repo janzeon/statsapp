@@ -20,6 +20,38 @@ app.controller('failurerateconfidence', function($scope) {
         }
     }
     
+    
+    $scope.info =function() {
+        $ ('#overlay').show();
+        
+        $ ('#overlay').animate({
+                opacity:0.5
+            });  
+        
+        $('#info').animate({
+                top:'0px'
+            }, 600, "swing");  
+        $ ('#info').show();
+       
+    }
+    
+    $scope.closeinfo=function(){
+        $('#info').animate({
+                top:'-3000px'
+            }, 600, "swing",function () {
+              $ ('#info').hide();
+            }); 
+        $ ('#overlay').animate({
+                opacity:0
+            }, 600 ,function () {
+               $ ('#overlay').hide();
+            });  
+        $scope.run()
+        
+    }
+    
+    
+    
     $scope.changealpha =function() {
         $('#modal-window').animate({
                 bottom:'-80px'
@@ -31,14 +63,14 @@ app.controller('failurerateconfidence', function($scope) {
     }
     
     $scope.closealpha=function(){
-        $ ('#overlay').animate({
-                opacity:0
-            });  
         $('#modal-window').animate({
                 bottom:'-350px'
             });  
-        
-        $ ('#overlay').hide();
+        $ ('#overlay').animate({
+                opacity:0
+            }, 600 ,function () {
+               $ ('#overlay').hide();
+            });
         $scope.run()
         
     }

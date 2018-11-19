@@ -9,6 +9,7 @@
   <meta name="viewport" content="initial-scale=1, width=device-width, height=device-height, viewport-fit=cover">
   <meta charset="UTF-8">
   <title>Sneaky Stats | Your friendly pocket stats app</title>
+  <link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
     
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Roboto:300,400" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -53,10 +54,29 @@
           font-weight: 400;
           color: darkgray
       }
+      h3 {
+          font-weight: 200;
+          color: gray;
+      }
       h1 {
           font-size:70px;
           font-weight:400;
           color:#EF6F6C;
+      }
+      h2 {
+          font-size:50px;
+          font-weight:400;
+          color:#EF6F6C;
+      }
+      h5 {
+          font-size:17px;
+          font-weight:600;
+          color:gray;
+      }
+      p {
+          color:gray; 
+          font-size:14px;
+          font-weight: 100;
       }
       .alphabutton {
         text-align: center;
@@ -68,6 +88,16 @@
         border: none;
         width:100px;
       }
+      .feedbackbutton {
+        text-align: center;
+        color: grey;
+        font-family: sans-serif;
+        cursor: pointer;
+        border-radius: 80px;
+        background: #F4F4F4;
+        border: none;
+        display: inline-block;
+      }
       .alphashortcut {
         color: grey;
         cursor: pointer;
@@ -75,11 +105,83 @@
         background: #E7E7E7;
         border: none;
       }
+      .blur {
+          opacity: 0.5;
+      }
+      .info-modal {
+          width:100vw;
+          z-index: 50;
+          position:absolute;
+          background: white;
+          top:-2000px;
+      }
+      .info-modal {
+          display: none;
+      }
   </style>
 </head>
 
-<body ng-controller="failurerateconfidence">
+<body ng-controller="failurerateconfidence">    
     <div id="overlay" ng-click="closealpha()"></div>
+    <div id="info" class="info-modal">
+        <div  class="container p-4">
+            <div class="row justify-content-end p-0" >
+                <div class="col-2" >
+                    <i class="material-icons" style="font-size:25px;color:gray; font-weight: 200" ng-click="closeinfo()">close</i>
+                </div>
+            </div>
+            <div class="row justify-content-center pt-4 pb-1 pt-sm-0">
+                <div class="col-10 text-center">
+                  <img class="pt-0 pb-3" width="65px" src="images/bcic4_big.png"/>
+                  <h3 class="pt-2" style="font-size:35px; font-weight: 200;">Binomial Confidence Interval Calculator</h3>
+                  <h2  style="font-size:25px; font-weight: 300;">Sneaky Stats</h2>
+                </div>
+            </div>
+            <div class="row justify-content-center pb-0 pt-2" >
+                <div class="col-10 col-sm-4 text-center py-2 px-0" >
+                  <p style="font-weight: 200; margin:0;">The binomial confidence interval calculator determines the uncertainty in the failure rate obtained from an experiment. </p>
+                </div>
+            </div>
+            <div class="row justify-content-center pb-0 pt-4" >
+                <div class="col-10 col-sm-4 text-center" >
+                    <p class="pb-2" style="font-size:10px; font-weight: 200;">developed by <b>j.mahadev</b></p>
+                    <a href="mailto:jmahadev@apple.com?subject=Sneaky%20Stats%20Feedback%20" class="py-2 px-4 feedbackbutton" ng-clck="feedback()"> 
+                        <p>PROVIDE FEEDBACK</p>
+                    </a>
+                </div>
+            </div>
+            <div class="row justify-content-center pb-0 pt-4" >
+                <div class="col-10 col-sm-12 text-left" >
+                    <h3 class="pt-2" style="font-size:25px; font-weight: 200;">How to use?</h3>
+                </div>
+                <div class="col-10 col-sm-6 text-left pt-3" >
+                  <h5>Enter the failure rate</h5>
+                    <p>Just enter the failure rate into the app, then hit done or enter. </p>
+                    <p class="mt-2">If you have 5 <b>Failures</b> out of 10 <b>Tested</b> i.e. 5F/10T ...</p>
+                    <img class="pt-3" width="100%" src="images/enterfr.png"/>
+                </div>
+                <div class="col-10 col-sm-6 text-left pt-3" >
+                  <h5>Change alpha</h5>
+                    <p>Press the alpha pill at the bottom of the screen. Then select from 90%, 95% and 99% confidence parameters.</p>
+                    <img class="pt-3" width="100%" src="images/confselect.png"/>
+                </div>
+                <div class="col-10 col-sm-6 text-left pt-3" >
+                  <h5>More about the app</h5>
+                    <p>Click the info button at the top-right corner. Here you can provide feedback, learn how to use it and how it works.</p>
+                    <img class="pt-3" width="100%" src="images/infobutton.png"/>
+                </div>
+            </div>
+            <div class="row justify-content-center pb-0 pt-4" >
+                <div class="col-10 col-sm-12 text-left" >
+                    <h3 class="pt-2" style="font-size:25px; font-weight: 200;">How does it work?</h3>
+                </div>
+                <div class="col-10 col-sm-6 text-left pt-3" >
+                  <h5>Coming soon</h5>
+                    <p>Working on it</p>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container p-4">
         <div class="row justify-content-end p-0" >
             <div class="col-2" >
@@ -110,7 +212,7 @@
         </div>
         <div class="row justify-content-center p-3" >
             <div class="col-12 text-center" >
-                <h4 style="font-size:50px"><span ng-hide="fr">FR%</span><span ng-show="fr">{{fr | number : 0}}%</span></h4>
+                <h4 style="font-size:50px"><span ng-hide="limits[1]">FR%</span><span ng-show="limits[1]">{{fr | number : 0}}%</span></h4>
             </div>
         </div>
         <div class="row justify-content-center p-0" >
@@ -155,24 +257,24 @@
             </div>
             <div class="row justify-content-center pt-0" >
                 <div class="col-12 text-center" >
-                  <p style="color:grey; font-size:15px">If we re-run this study several times, we will wrong, i.e. be outside these bounds, <b>1 in {{confidencetrials() | number : 0}} times</b>. In other words our confidence is ...</p>
+                  <p style="color:grey; font-size:15px">If we re-run this study several times, we will be wrong, i.e. outside these bounds, <b>1 in {{confidencetrials() | number : 0}} times</b>. In other words our confidence is ...</p>
                 </div>
             </div>
             <div class="row justify-content-center pt-2" >
                 <div class="col-4 text-center p-2" >
-                  <div class="alphashortcut px-2 py-1" ng-click="confidence=90">
+                  <div class="alphashortcut px-2 py-1" ng-click="confidence=90" ng-class="{ 'blur' : confidence!=90 }">
                       <h4 class="p-0 m-0">90%</h4>
                       <p class="p-0 m-0">&alpha; = 0.1</p>
                   </div>
                 </div>
                 <div class="col-4 text-center p-2" >
-                  <div class="alphashortcut px-2 py-1" ng-click="confidence=95">
+                  <div class="alphashortcut px-2 py-1" ng-click="confidence=95" ng-class="{ 'blur' : confidence!=95 }">
                       <h4 class="p-0 m-0">95%</h4>
                       <p class="p-0 m-0">&alpha; = 0.05</p>
                   </div>
                 </div>
                 <div class="col-4 text-center p-2" >
-                  <div class="alphashortcut px-2 py-1" ng-click="confidence=99">
+                  <div class="alphashortcut px-2 py-1" ng-click="confidence=99" ng-class="{ 'blur' : confidence!=99 }">
                       <h4 class="p-0 m-0">99%</h4>
                       <p class="p-0 m-0">&alpha; = 0.01</p>
                   </div>
